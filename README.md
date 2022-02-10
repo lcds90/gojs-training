@@ -1,34 +1,50 @@
-# gojs
+# Repositório sobre a biblioteca GoJS
 
-## Project setup
-```
-npm install
-```
+# O que é?
+GoJS é uma biblioteca JavaScript, com suporte a TypeScript para criar e manipular diagramas, tabelas e gráficos.
+# Conceitos
+Diagramas <sup>**Diagrams**</sup> consistem de partes <sup>**Part**</sup>, nós <sup>**Node**</sup> são conectados por links <sup>**Link**</sup> e podem ser agrupados <sup>**Groups**</sup>, todas elas estão presentes em camadas<sup>**Layers**</sup> e podem ser organizados por leiautes<sup>**Layouts**</sup>.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Desenho mostrando
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Links Úteis da API
 
-### Run your unit tests
-```
-npm run test:unit
-```
 
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
+<details>
+<summary>Detalhamento</summary>
 
-### Lints and fixes files
-```
-npm run lint
-```
+### [Diagrama](https://gojs.net/latest/api/symbols/Diagram.html)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
+### [Part](https://gojs.net/latest/api/symbols/Part.html)
+
+
+
+### [Nodes](https://gojs.net/latest/api/symbols/Node.html)
+
+
+
+### [Link](https://gojs.net/latest/api/symbols/Link.html)
+
+
+
+
+### [Group](https://gojs.net/latest/api/symbols/Group.html)
+
+
+
+
+### [Layout](https://gojs.net/latest/api/symbols/Layout.html)
+
+
+
+
+### [Layer](https://gojs.net/latest/api/symbols/Layer.html)
+
+</details>
+
+# Montando partes
+
+Essa seção abordará sobre *GraphObjects*, explicamente a criação de nodes e links.
