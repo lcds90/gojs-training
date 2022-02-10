@@ -108,6 +108,7 @@ export default defineComponent({
           new Binding('text', 'key')));
       diagram.model = new TreeModel(nodeData);
     };
+
     onMounted(() => {
       const div: HTMLAttributes = divRef?.value;
       const div2: HTMLAttributes = divRefTwo?.value;

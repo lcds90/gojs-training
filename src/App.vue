@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
+    <router-link to="/">Home</router-link>
     <router-link to="/first-lesson">Introdução</router-link>
     <router-link to="/using-models">Usando Models</router-link>
     <router-link to="/data-binding">Data Binding</router-link>
@@ -26,14 +26,16 @@
   max-width: 100%;
   width: 100vw;
   display: grid;
-  grid: 0.15fr 1fr / 1fr;
+  grid: 10vh 1fr/1fr;
 }
 
 #nav {
   padding: 30px;
   background: grey;
   border-bottom: 0.5px black solid;
-
+  display: grid;
+  gap: 25px;
+  grid-auto-flow: column;
   a {
     font-weight: bold;
     color: #2e2e2e;

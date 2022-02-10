@@ -13,8 +13,8 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/FirstLesson.vue'),
   },
   {
-    path: '/building-blocks',
-    name: 'Building Blocks',
+    path: '/using-models',
+    name: 'Using Models',
     component: () => import(/* webpackChunkName: "about" */ '../views/UsingModels.vue'),
   },
 
