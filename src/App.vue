@@ -1,29 +1,47 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/firstlesson">Introdução</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-height: 100vh;
+  max-width: 100%;
+  width: 100vw;
+  display: grid;
+  grid: 0.15fr 1fr / 1fr;
 }
 
 #nav {
   padding: 30px;
+  background: grey;
+  border-bottom: 0.5px black solid;
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #2e2e2e;
+    text-decoration: none;
+    padding: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 
     &.router-link-exact-active {
-      color: #42b983;
+      background: #42b983;
+      border-radius: 5px;
     }
   }
 }
