@@ -59,7 +59,7 @@ export default defineComponent({
 
 #nav {
   padding: 30px;
-  background: grey;
+  background: lightgrey;
   border-bottom: 0.5px black solid;
   display: grid;
   gap: 25px;
@@ -70,7 +70,10 @@ export default defineComponent({
     color: #2e2e2e;
     text-decoration: none;
     padding: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease;
+    display: grid;
+    place-items: center;
 
     &.router-link-exact-active {
       background: #42b983;
