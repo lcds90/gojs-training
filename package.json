@@ -13,6 +13,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@vueuse/head": "^0.7.5",
     "core-js": "^3.6.5",
     "gojs": "^2.1.56",
     "vue": "^3.0.0",

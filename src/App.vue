@@ -8,6 +8,33 @@
   </div>
   <router-view />
 </template>
+<script lang="ts">
+import { defineComponent, reactive } from 'vue';
+import { useHead } from '@vueuse/head';
+
+export default defineComponent({
+  setup() {
+    const siteData = reactive({
+      title: 'GoJS Training with Leonardo Santos',
+      description: 'Training my skills with lib GoJS.',
+    });
+
+    useHead({
+      title: siteData.title,
+      meta: [
+        {
+          name: 'description',
+          content: siteData.description,
+        },
+      ],
+    });
+
+    return {
+
+    };
+  },
+});
+</script>
 
 <style lang="scss">
 * {
