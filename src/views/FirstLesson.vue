@@ -58,7 +58,7 @@ export default defineComponent({
 
 <style scoped>
   #model {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 75%;
   }
 </style>

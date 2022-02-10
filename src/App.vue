@@ -27,7 +27,7 @@
   max-width: 100%;
   width: 100vw;
   display: grid;
-  grid: 10vh 1fr/1fr;
+  grid: 15vh 85vh / 1fr;
 }
 
 #nav {
@@ -37,6 +37,7 @@
   display: grid;
   gap: 25px;
   grid-auto-flow: column;
+  overflow-y: hidden;
   a {
     font-weight: bold;
     color: #2e2e2e;

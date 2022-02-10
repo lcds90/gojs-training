@@ -145,20 +145,12 @@ export default defineComponent({
 
 .about {
   display: grid;
-  grid: min-content 1fr / 1fr 1fr;
+  grid: min-content 1fr / 50vw 50vw;
+  width: 100%;
+  height: 100%;
 }
 
 h1 {
   grid-column: span 2;
-}
-
-#divRef {
-  width: 30vw;
-  height: 100vh;
-}
-
-#divRefTwo {
-  width: 30vw;
-  height: 100vh;
 }
 </style>

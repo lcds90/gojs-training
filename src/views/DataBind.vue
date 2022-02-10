@@ -196,8 +196,8 @@ export default defineComponent({
 
 <style scoped>
   .about {
-    width: 100vw;
-    height: 80vh;
+    width: 100%;
+    height: 100%;
     display: grid;
     grid: min-content repeat(3, 1fr) / 1fr 1fr;
   }

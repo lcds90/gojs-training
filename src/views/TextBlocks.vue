@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>Introdução</h1>
+    <h1>Bloco de textos</h1>
     <div ref="diagramDiv" id="diagramDiv"></div>
   </div>
 </template>
@@ -360,7 +360,7 @@ export default defineComponent({
 
 <style scoped>
   #diagramDiv {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 90%;
   }
 </style>
