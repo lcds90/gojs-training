@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>Introdução</h1>
+    <h1>Data Binding</h1>
     <div ref="divRef" id="divRef"></div>
     <div ref="divRef2" id="divRef2"></div>
     <div ref="divRef3" id="divRef3"></div>

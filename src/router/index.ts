@@ -14,14 +14,19 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/using-models',
-    name: 'Using Models',
+    name: 'UsingModels',
     component: () => import(/* webpackChunkName: "about" */ '../views/UsingModels.vue'),
   },
 
   {
     path: '/data-binding',
-    name: 'Data Binding',
+    name: 'DataBinding',
     component: () => import(/* webpackChunkName: "about" */ '../views/DataBind.vue'),
+  },
+  {
+    path: '/text-blocks',
+    name: 'Text Blocks',
+    component: () => import(/* webpackChunkName: "about" */ '../views/TextBlocks.vue'),
   },
 ];
 
