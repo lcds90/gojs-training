@@ -148,6 +148,7 @@ export default defineComponent({
   grid: min-content 1fr / 50vw 50vw;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 h1 {

@@ -9,24 +9,29 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/first-lesson',
-    name: 'First',
+    name: 'Primeira lição',
     component: () => import(/* webpackChunkName: "about" */ '../views/FirstLesson.vue'),
   },
   {
     path: '/using-models',
-    name: 'UsingModels',
+    name: 'Usando Modelos',
     component: () => import(/* webpackChunkName: "about" */ '../views/UsingModels.vue'),
   },
 
   {
     path: '/data-binding',
-    name: 'DataBinding',
+    name: 'Data Binding',
     component: () => import(/* webpackChunkName: "about" */ '../views/DataBind.vue'),
   },
   {
     path: '/text-blocks',
-    name: 'Text Blocks',
+    name: 'Blocos de Texto',
     component: () => import(/* webpackChunkName: "about" */ '../views/TextBlocks.vue'),
+  },
+  {
+    path: '/shapes',
+    name: 'Formas',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Shapes.vue'),
   },
 ];
 

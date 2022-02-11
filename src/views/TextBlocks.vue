@@ -21,19 +21,28 @@ export default defineComponent({
     const renderFontWithColors = (diag: Diagram) => {
       const diagram = diag;
       diagram.add(
-        $(Part, 'Vertical',
+        $(
+          Part,
+          'Vertical',
           $(TextBlock, { text: 'a Text Block' }),
           $(TextBlock, { text: 'a Text Block', stroke: 'red' }),
           $(TextBlock, { text: 'a Text Block', background: 'lightblue' }),
-          $(TextBlock, { text: 'a Text Block', font: 'bold 14pt serif' })),
+          $(TextBlock, { text: 'a Text Block', font: 'bold 14pt serif' }),
+        ),
       );
     };
 
     const renderSizingAndClipping = (diag: Diagram) => {
       const diagram = diag;
       diagram.add(
-        $(Part, 'Vertical',
-          $(TextBlock, { text: 'a Text Block', background: 'lightgreen', margin: 2 }),
+        $(
+          Part,
+          'Vertical',
+          $(TextBlock, {
+            text: 'a Text Block',
+            background: 'lightgreen',
+            margin: 2,
+          }),
           $(TextBlock, {
             text: 'a Text Block',
             background: 'lightgreen',
@@ -61,14 +70,17 @@ export default defineComponent({
             margin: 2,
             width: 40,
             height: 9,
-          })),
+          }),
+        ),
       );
     };
 
     const renderMaxLinesAndOverflow = (diag: Diagram) => {
       const diagram = diag;
       diagram.add(
-        $(Part, 'Vertical',
+        $(
+          Part,
+          'Vertical',
           // Allow any number of lines, no clipping needed:
           $(TextBlock, {
             text: 'a Text Block that takes 4 lines',
@@ -98,15 +110,22 @@ export default defineComponent({
             maxLines: 2,
             margin: 2,
             width: 90,
-          })),
+          }),
+        ),
       );
     };
 
     const renderWrapping = (diag: Diagram) => {
       const diagram = diag;
       diagram.add(
-        $(Part, 'Vertical',
-          $(TextBlock, { text: 'a Text Block', background: 'lightgreen', margin: 2 }),
+        $(
+          Part,
+          'Vertical',
+          $(TextBlock, {
+            text: 'a Text Block',
+            background: 'lightgreen',
+            margin: 2,
+          }),
           $(TextBlock, {
             text: 'a Text Block',
             background: 'lightgreen',
@@ -127,14 +146,21 @@ export default defineComponent({
             margin: 2,
             width: 50,
             wrap: TextBlock.WrapFit,
-          })),
+          }),
+        ),
       );
     };
 
     const renderTextAligned = (diagram: Diagram) => {
       diagram.add(
-        $(Part, 'Vertical',
-          $(TextBlock, { text: 'a Text Block', background: 'lightgreen', margin: 2 }),
+        $(
+          Part,
+          'Vertical',
+          $(TextBlock, {
+            text: 'a Text Block',
+            background: 'lightgreen',
+            margin: 2,
+          }),
           $(TextBlock, {
             text: 'a Text Block',
             background: 'lightgreen',
@@ -155,12 +181,17 @@ export default defineComponent({
             margin: 2,
             width: 50,
             wrap: TextBlock.WrapFit,
-          })),
+          }),
+        ),
       );
 
       diagram.add(
-        $(Part, 'Horizontal',
-          $(Panel, 'Vertical',
+        $(
+          Part,
+          'Horizontal',
+          $(
+            Panel,
+            'Vertical',
             { width: 150, defaultStretch: GraphObject.Horizontal },
             $(TextBlock, {
               text: "textAlign: 'left'",
@@ -179,8 +210,11 @@ export default defineComponent({
               background: 'lightgreen',
               margin: 2,
               textAlign: 'right',
-            })),
-          $(Panel, 'Vertical',
+            }),
+          ),
+          $(
+            Panel,
+            'Vertical',
             { width: 150, defaultStretch: GraphObject.None },
             $(TextBlock, {
               text: 'alignment: Left',
@@ -199,10 +233,14 @@ export default defineComponent({
               background: 'lightgreen',
               margin: 2,
               alignment: Spot.Right,
-            }))),
+            }),
+          ),
+        ),
       );
       diagram.add(
-        $(Part, 'Horizontal',
+        $(
+          Part,
+          'Horizontal',
           $(TextBlock, {
             text: 'verticalAlignment: Top',
             verticalAlignment: Spot.Top,
@@ -226,10 +264,13 @@ export default defineComponent({
             height: 60,
             background: 'lightgreen',
             margin: 10,
-          })),
+          }),
+        ),
       );
       diagram.add(
-        $(Part, 'Vertical',
+        $(
+          Part,
+          'Vertical',
           $(TextBlock, {
             text: 'a Text Block\nwith three logical lines\nof text',
             background: 'lightgreen',
@@ -250,18 +291,22 @@ export default defineComponent({
             textAlign: 'center',
           }),
           $(TextBlock, {
-            text: 'a single line of centered text that should'
-                            + ' wrap because we will limit the width',
+            text:
+              'a single line of centered text that should'
+              + ' wrap because we will limit the width',
             background: 'lightgreen',
             margin: 2,
             width: 80,
             wrap: TextBlock.WrapFit,
             textAlign: 'center',
-          })),
+          }),
+        ),
       );
 
       diagram.add(
-        $(Part, 'Vertical',
+        $(
+          Part,
+          'Vertical',
           $(TextBlock, {
             text: 'left aligned\n\u200B  indent two\n\u200B    indent four',
             background: 'lightgreen',
@@ -273,14 +318,21 @@ export default defineComponent({
             background: 'lightgreen',
             margin: 2,
             width: 150,
-          })),
+          }),
+        ),
       );
     };
 
     const renderTextFlipped = (diagram: Diagram) => {
       diagram.add(
-        $(Part, 'Table',
-          { defaultColumnSeparatorStrokeWidth: 3, defaultColumnSeparatorStroke: 'gray', defaultSeparatorPadding: 5 },
+        $(
+          Part,
+          'Table',
+          {
+            defaultColumnSeparatorStrokeWidth: 3,
+            defaultColumnSeparatorStroke: 'gray',
+            defaultSeparatorPadding: 5,
+          },
           $(TextBlock, {
             text: 'Hello',
             column: 0,
@@ -312,29 +364,32 @@ export default defineComponent({
             font: '26px serif',
             flip: GraphObject.FlipBoth,
           }),
-          $(TextBlock, 'FlipBoth', { row: 1, column: 3 })),
+          $(TextBlock, 'FlipBoth', { row: 1, column: 3 }),
+        ),
       );
     };
 
     const renderTextCanBeEdited = (diagram: Diagram) => {
       diagram.add(
-        $(Part,
-          $(TextBlock,
-            {
-              text: 'select and then click to edit',
-              background: 'lightblue',
-              editable: true,
-              isMultiline: false,
-            })),
+        $(
+          Part,
+          $(TextBlock, {
+            text: 'select and then click to edit',
+            background: 'lightblue',
+            editable: true,
+            isMultiline: false,
+          }),
+        ),
       );
       diagram.add(
-        $(Part,
-          $(TextBlock,
-            {
-              text: 'this one allows embedded newlines',
-              background: 'lightblue',
-              editable: true,
-            })),
+        $(
+          Part,
+          $(TextBlock, {
+            text: 'this one allows embedded newlines',
+            background: 'lightblue',
+            editable: true,
+          }),
+        ),
       );
     };
     onMounted(() => {
@@ -359,8 +414,15 @@ export default defineComponent({
 </script>
 
 <style scoped>
-  #diagramDiv {
-    width: 100%;
-    height: 90%;
-  }
+.about {
+  display: grid;
+  grid: min-content 1fr / 1fr;
+  place-items: center;
+}
+
+#diagramDiv {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
 </style>

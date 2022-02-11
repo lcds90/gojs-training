@@ -4,7 +4,7 @@
     <div ref="divRef" id="divRef"></div>
     <div ref="divRef2" id="divRef2"></div>
     <div ref="divRef3" id="divRef3"></div>
-    <div ref="divRef4" id="divRef4"></div>
+    <div ref="divRef4" id="divRef4" :style="{gridRow: 'span 2'}"></div>
     <div ref="divRef5" id="divRef5"></div>
   </div>
 </template>
@@ -200,6 +200,7 @@ export default defineComponent({
     height: 100%;
     display: grid;
     grid: min-content repeat(3, 1fr) / 1fr 1fr;
+    overflow-y: hidden;
   }
 
   div {

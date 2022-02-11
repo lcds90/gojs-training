@@ -1,19 +1,22 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link>
-    <router-link to="/first-lesson">Introdução</router-link>
-    <router-link to="/using-models">Usando Models</router-link>
-    <router-link to="/data-binding">Data Binding</router-link>
-    <router-link to="/text-blocks">Bloco de Textos</router-link>
+    <router-link
+      v-for="route in nameAndLinksRouter"
+      :to="route.path"
+      :key="route.path"
+      >{{ route.name }}</router-link
+    >
   </div>
   <router-view />
 </template>
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
 import { useHead } from '@vueuse/head';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   setup() {
+    const router = useRouter();
     const siteData = reactive({
       title: 'GoJS Training with Leonardo Santos',
       description: 'Training my skills with lib GoJS.',
@@ -28,9 +31,10 @@ export default defineComponent({
         },
       ],
     });
+    const nameAndLinksRouter = router.getRoutes();
 
     return {
-
+      nameAndLinksRouter,
     };
   },
 });
@@ -54,7 +58,7 @@ export default defineComponent({
   max-width: 100%;
   width: 100vw;
   display: grid;
-  grid: 15vh 85vh / 1fr;
+  grid: 15vh 1fr / 1fr;
 }
 
 #nav {
