@@ -2,6 +2,12 @@
   <div class="home">
     <Welcome />
   </div>
+  <footer>
+    <code>Todos os direitos são reservados aos dono da biblioteca.</code>
+    <a href="https://lcds.vercel.app/" target="_blank"
+      >Feito por Leonardo Santos</a
+    >
+  </footer>
 </template>
 
 <script lang="ts">

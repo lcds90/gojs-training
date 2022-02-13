@@ -418,6 +418,8 @@ export default defineComponent({
   display: grid;
   grid: min-content 1fr / 1fr;
   place-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 #diagramDiv {

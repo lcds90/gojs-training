@@ -1,17 +1,9 @@
 <template>
   <div id="nav">
-    <router-link
-      v-for="route in nameAndLinksRouter"
-      :to="route.path"
-      :key="route.path"
-      >{{ route.name }}</router-link
-    >
+    <router-link to="/">Home</router-link>
+    <router-link to="/tutorial">Tutorial</router-link>
   </div>
   <router-view />
-  <footer>
-    <code>Todos os direitos são reservados aos dono da biblioteca.</code>
-    <a href="https://lcds.vercel.app/" target="_blank">Feito por Leonardo Santos</a>
-     </footer>
 </template>
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
@@ -35,11 +27,6 @@ export default defineComponent({
         },
       ],
     });
-    const nameAndLinksRouter = router.getRoutes();
-
-    return {
-      nameAndLinksRouter,
-    };
   },
 });
 </script>
@@ -62,7 +49,8 @@ export default defineComponent({
   max-width: 100%;
   width: 100vw;
   display: grid;
-  grid: 15vh 1fr 10vh / 1fr;
+  grid: 15vh 1fr / 1fr;
+  grid-auto-rows: 10vh;
 
   footer {
     border: 4px double black;

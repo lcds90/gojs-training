@@ -8,31 +8,39 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
-    path: '/first-lesson',
-    name: 'Primeira lição',
-    component: () => import(/* webpackChunkName: "about" */ '../views/FirstLesson.vue'),
-  },
-  {
-    path: '/using-models',
-    name: 'Usando Modelos',
-    component: () => import(/* webpackChunkName: "about" */ '../views/UsingModels.vue'),
+    path: '/tutorial',
+    name: 'GoJS Tutorial',
+    component: () => import('../views/tutorial/_Index.vue'),
+    children: [
+      {
+        name: 'tutorial/Primeira lição',
+        path: '/first-lesson',
+        component: () => import('../views/tutorial/FirstLesson.vue'),
+      },
+      {
+        name: 'tutorial/Usando modelos',
+        path: '/using-models',
+        component: () => import('../views/tutorial/UsingModels.vue'),
+      },
+
+      {
+        name: 'tutorial/Vinculação de dados',
+        path: '/data-binding',
+        component: () => import('../views/tutorial/DataBind.vue'),
+      },
+      {
+        name: 'tutorial/Bloco de textos',
+        path: '/text-blocks',
+        component: () => import('../views/tutorial/TextBlocks.vue'),
+      },
+      {
+        name: 'tutorial/Formas',
+        path: '/shapes',
+        component: () => import('../views/tutorial/Shapes.vue'),
+      },
+    ],
   },
 
-  {
-    path: '/data-binding',
-    name: 'Data Binding',
-    component: () => import(/* webpackChunkName: "about" */ '../views/DataBind.vue'),
-  },
-  {
-    path: '/text-blocks',
-    name: 'Blocos de Texto',
-    component: () => import(/* webpackChunkName: "about" */ '../views/TextBlocks.vue'),
-  },
-  {
-    path: '/shapes',
-    name: 'Formas',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Shapes.vue'),
-  },
 ];
 
 const router = createRouter({

@@ -97,9 +97,14 @@ export default defineComponent({
       );
 
       diagram.add(
-        $(Part, 'Horizontal',
+        $(
+          Part,
+          'Horizontal',
           $(Shape, {
-            figure: 'Ellipse', width: 40, height: 40, margin: 4,
+            figure: 'Ellipse',
+            width: 40,
+            height: 40,
+            margin: 4,
           }), // default fill and stroke are "black"
           $(Shape, {
             figure: 'Ellipse',
@@ -149,7 +154,8 @@ export default defineComponent({
             margin: 4,
             fill: 'green',
             background: 'orange',
-          })),
+          }),
+        ),
       );
     });
     return {
@@ -164,6 +170,8 @@ export default defineComponent({
   display: grid;
   grid: 1fr 1fr / 1fr;
   place-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 #shape {

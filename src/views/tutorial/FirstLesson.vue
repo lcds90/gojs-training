@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="container">
     <h1>Introdução</h1>
     <div ref="model" id="model"></div>
   </div>
@@ -21,22 +21,32 @@ export default defineComponent({
       const div: HTMLAttributes = model?.value;
       const id = div.id || '';
       const diagram = $(Diagram, id);
-      diagram.nodeTemplate = $(go.Node, 'Auto',
-        $(go.Shape, 'RoundedRectangle',
+      diagram.nodeTemplate = $(
+        go.Node,
+        'Auto',
+        $(
+          go.Shape,
+          'RoundedRectangle',
           { fill: 'white' },
-          new go.Binding('fill', 'color')),
-        $(go.TextBlock,
-          { margin: 5 },
-          new go.Binding('text', 'key')));
+          new go.Binding('fill', 'color'),
+        ),
+        $(go.TextBlock, { margin: 5 }, new go.Binding('text', 'key')),
+      );
 
-      diagram.linkTemplate = $(go.Link,
-        $(go.Shape,
+      diagram.linkTemplate = $(
+        go.Link,
+        $(
+          go.Shape,
           new go.Binding('stroke', 'color'),
-          new go.Binding('strokeWidth', 'thick')),
-        $(go.Shape,
+          new go.Binding('strokeWidth', 'thick'),
+        ),
+        $(
+          go.Shape,
           { toArrow: 'OpenTriangle', fill: null },
           new go.Binding('stroke', 'color'), // shape.stroke = data.color
-          new go.Binding('strokeWidth', 'thick')));
+          new go.Binding('strokeWidth', 'thick'),
+        ),
+      );
 
       const nodeDataArray = [
         { key: 'Alpha', color: 'lightblue' },
@@ -44,7 +54,10 @@ export default defineComponent({
       ];
       const linkDataArray = [
         {
-          from: 'Alpha', to: 'Beta', color: 'blue', thick: 2,
+          from: 'Alpha',
+          to: 'Beta',
+          color: 'blue',
+          thick: 2,
         },
       ];
       diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
@@ -57,8 +70,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
-  #model {
-    width: 100%;
-    height: 75%;
-  }
+.container {
+  width: 100%;
+  height: 100%;
+}
+#model {
+  width: 100%;
+  height: 75%;
+}
 </style>
