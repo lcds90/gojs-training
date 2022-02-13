@@ -99,17 +99,17 @@ export default defineComponent({
       diagram.add(
         $(Part, 'Horizontal',
           $(Shape, {
-            figure: 'Club', width: 40, height: 40, margin: 4,
+            figure: 'Ellipse', width: 40, height: 40, margin: 4,
           }), // default fill and stroke are "black"
           $(Shape, {
-            figure: 'Club',
+            figure: 'Ellipse',
             width: 40,
             height: 40,
             margin: 4,
             fill: 'green',
           }),
           $(Shape, {
-            figure: 'Club',
+            figure: 'Ellipse',
             width: 40,
             height: 40,
             margin: 4,
@@ -117,7 +117,7 @@ export default defineComponent({
             stroke: null,
           }),
           $(Shape, {
-            figure: 'Club',
+            figure: 'Ellipse',
             width: 40,
             height: 40,
             margin: 4,
@@ -125,7 +125,7 @@ export default defineComponent({
             stroke: 'green',
           }),
           $(Shape, {
-            figure: 'Club',
+            figure: 'Ellipse',
             width: 40,
             height: 40,
             margin: 4,
@@ -134,7 +134,7 @@ export default defineComponent({
             strokeWidth: 3,
           }),
           $(Shape, {
-            figure: 'Club',
+            figure: 'Ellipse',
             width: 40,
             height: 40,
             margin: 4,
@@ -143,7 +143,7 @@ export default defineComponent({
             strokeWidth: 6,
           }),
           $(Shape, {
-            figure: 'Club',
+            figure: 'Ellipse',
             width: 40,
             height: 40,
             margin: 4,

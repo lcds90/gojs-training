@@ -8,6 +8,10 @@
     >
   </div>
   <router-view />
+  <footer>
+    <code>Todos os direitos são reservados aos dono da biblioteca.</code>
+    <a href="https://lcds.vercel.app/" target="_blank">Feito por Leonardo Santos</a>
+     </footer>
 </template>
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
@@ -18,7 +22,7 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     const siteData = reactive({
-      title: 'GoJS Training with Leonardo Santos',
+      title: 'GoJS Training',
       description: 'Training my skills with lib GoJS.',
     });
 
@@ -58,7 +62,16 @@ export default defineComponent({
   max-width: 100%;
   width: 100vw;
   display: grid;
-  grid: 15vh 1fr / 1fr;
+  grid: 15vh 1fr 10vh / 1fr;
+
+  footer {
+    border: 4px double black;
+    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.25);
+    background: grey;
+    display: grid;
+    place-items: center;
+    grid: 1fr / 1fr 1fr;
+  }
 }
 
 #nav {
