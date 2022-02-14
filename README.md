@@ -1,5 +1,10 @@
 # Repositório sobre a biblioteca GoJS
 
+// TODO Descrição nas páginas sobre seção
+// TODO Projeto com utilização da store em subrota
+// TODO Testes unitários
+// TODO Storybook (?)
+
 # O que é?
 GoJS é uma biblioteca JavaScript, com suporte a TypeScript para criar e manipular diagramas, tabelas e gráficos.
 # Conceitos

@@ -2,6 +2,7 @@
   <div id="nav">
     <router-link to="/">Home</router-link>
     <router-link to="/tutorial">Tutorial</router-link>
+    <router-link to="/project">Projeto</router-link>
   </div>
   <router-view />
 </template>
@@ -52,14 +53,6 @@ export default defineComponent({
   grid: 15vh 1fr / 1fr;
   grid-auto-rows: 10vh;
 
-  footer {
-    border: 4px double black;
-    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.25);
-    background: grey;
-    display: grid;
-    place-items: center;
-    grid: 1fr / 1fr 1fr;
-  }
 }
 
 #nav {

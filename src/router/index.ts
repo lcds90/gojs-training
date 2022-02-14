@@ -8,6 +8,11 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
+    path: '/project',
+    name: 'GoJS Projeto',
+    component: () => import('../views/project/Project.vue'),
+  },
+  {
     path: '/tutorial',
     name: 'GoJS Tutorial',
     component: () => import('../views/tutorial/_Index.vue'),
@@ -37,6 +42,17 @@ const routes: Array<RouteRecordRaw> = [
         name: 'tutorial/Formas',
         path: '/shapes',
         component: () => import('../views/tutorial/Shapes.vue'),
+      },
+      {
+        name: 'tutorial/Imagens',
+        path: '/pictures',
+        component: () => import('../views/tutorial/Pictures.vue'),
+      },
+      // FIXME Quando terminar items arrays, pictures -> sizing objects
+      {
+        name: 'tutorial/Item de arrays',
+        path: '/item-arrays',
+        component: () => import('../views/tutorial/item-arrays.vue'),
       },
     ],
   },

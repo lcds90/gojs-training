@@ -27,4 +27,13 @@ export default defineComponent({
   width: 100%;
   height: 100%;
 }
+
+footer {
+  border: 4px double black;
+  box-shadow: 0 5px 2px rgba(0, 0, 0, 0.25);
+  background: grey;
+  display: grid;
+  place-items: center;
+  grid: 1fr / 1fr 1fr;
+}
 </style>
