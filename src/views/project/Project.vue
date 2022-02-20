@@ -1,70 +1,67 @@
 <template>
   <div class="container">
-    <nav :class="showActionsMenu ? 'actions-show' : 'actions-hide'">
-      <button>Add</button>
-      <button>Remove</button>
-    </nav>
-    <div ref="diagramDiv" id="diagramDiv"></div>
-    <footer>
-      <button class="showMenu" @click="toggleViewActions">Mostrar menu</button>
-      <button class="showDetails" @click="toggleViewDetails">
-        Mostrar detalhes do diagrama
-      </button>
-    </footer>
+    <Actions />
+    <main ref="diagramEl" id="diagramEl"></main>
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
 import {
-  defineComponent, ref, onMounted, HTMLAttributes, computed,
+  defineComponent,
+  ref,
+  onMounted,
+  HTMLAttributes,
+  unref,
+  computed,
 } from 'vue';
-import {
-  Diagram, GraphObject, Part, Picture, Spot, TextBlock,
-} from 'gojs';
+import { useStore } from 'vuex';
+
+import { DiagramGetters } from '@/constants';
+import { ObjectData } from '@/interfaces';
+import go from '@/shared/goJS';
+
+import { Actions, Footer } from './components';
+import { useActionMenu, useGoJS } from './composables';
 
 export default defineComponent({
-  setup() {
-    const diagramDiv = ref();
-    const $ = GraphObject.make;
-    const showActionsMenu = ref(true);
-    const toggleViewActions = () => {
-      showActionsMenu.value = !showActionsMenu.value;
-    };
-    const renderCatImage = (diag: Diagram) => {
-      const diagram = diag;
-      const urlImg = 'https://www.dicaspetz.com.br/wp-content/uploads/2020/08/cat-sitter-pet.jpg';
-      diagram.add(
-        $(Part, $(Picture, { source: urlImg, width: 200, height: 200 })),
-      );
-      diagram.add(
-        $(
-          Part,
-          'Table',
-          $(Picture, {
-            source: urlImg,
-            width: 100,
-            height: 100,
-            column: 0,
-          }),
-          $(TextBlock, 'gatinho!', { row: 1, column: 0 }),
-        ),
+  components: {
+    Actions,
+    Footer,
+  },
+  setup(_p, { emit }) {
+    useActionMenu();
+
+    const store = useStore();
+    const diagramEl = ref<HTMLDivElement>();
+    const diagramData = computed(() => store.getters[DiagramGetters.GET_DATA]);
+
+    let diagram: go.Diagram;
+
+    const startDiagram = async (): Promise<void> => {
+      const diagramElement = unref(diagramEl);
+      const diagramAlias = unref(computed(() => store.getters[DiagramGetters.GET_ALIAS]));
+      const diagramOptions = computed(() => store.getters[DiagramGetters.GET_OPTIONS]);
+      const nodeDataArray = unref(diagramData).nodes as ObjectData[];
+      const linkDataArray = unref(diagramData).links as ObjectData[];
+
+      if (!diagramElement) return;
+      useGoJS.useGoJS(
+        diagramAlias,
+        diagramOptions,
+        diagramElement,
+        emit,
+        nodeDataArray,
+        linkDataArray,
       );
     };
 
-    onMounted(() => {
-      const div: HTMLAttributes = diagramDiv?.value;
-      const id = div.id || '';
-      const diagram = $(Diagram, id);
-      diagram.contentAlignment = Spot.Center;
-
-      renderCatImage(diagram);
+    onMounted(async () => {
+      startDiagram();
     });
-    console.log(showActionsMenu);
 
     return {
-      diagramDiv,
-      showActionsMenu,
-      toggleViewActions,
+      diagramEl,
     };
   },
 });
@@ -91,34 +88,7 @@ footer {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.actions-hide,
-.actions-show {
-  display: grid;
-  grid-auto-flow: column;
-  place-items: center;
-  overflow: hidden;
-  transition: all 2s ease;
-  position: absolute;
-  height: 95%;
-  z-index: 5;
-  border-radius: 15px;
-  cursor: move;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
-}
-
-.actions-show {
-  left: 0;
-  width: 25vw;
-  background: lightslategrey;
-}
-
-.actions-hide {
-  left: -5vw;
-  width: 5vw;
-  background: black;
-}
-
-#diagramDiv {
+#diagramEl {
   overflow: hidden;
   width: 100%;
   height: 100%;

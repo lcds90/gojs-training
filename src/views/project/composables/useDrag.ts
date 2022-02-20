@@ -8,3 +8,5 @@ const useDrag = () => {
     movementY: 0,
   });
 };
+
+export default useDrag;

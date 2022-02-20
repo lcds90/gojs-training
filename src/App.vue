@@ -13,7 +13,6 @@ import { useRouter } from 'vue-router';
 
 export default defineComponent({
   setup() {
-    const router = useRouter();
     const siteData = reactive({
       title: 'GoJS Training',
       description: 'Training my skills with lib GoJS.',

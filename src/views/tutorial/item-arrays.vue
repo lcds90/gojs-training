@@ -17,7 +17,6 @@ import {
   Diagram,
   GraphLinksModel,
   GraphObject,
-  Part,
   ObjectData,
   Node,
   Shape,
