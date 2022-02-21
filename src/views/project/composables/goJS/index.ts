@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { ObjectData } from '@/interfaces';
-import go from '../../../../shared/goJS';
+import go from '@/shared/goJS';
 
 const $ = go.GraphObject.make;
 
@@ -40,6 +40,17 @@ const addConfigs = (config: any, model: go.GraphLinksModel, diagram: go.Diagram)
   diagram.layout = setupDiagramLayout();
 };
 
+const addNodeTemplate = (diagram: go.Diagram) => {
+  diagram.nodeTemplate = $(go.Node, 'Auto',
+    new go.Binding('location', 'loc', go.Point.parse),
+    $(go.Shape, 'Ellipse', { fill: 'white' }),
+    $(go.TextBlock, { margin: 5 }, new go.Binding('text', 'key')));
+};
+
+const addLinkTemplate = (diagram: go.Diagram) => {
+  diagram.linkTemplate = $(go.Link, { routing: go.Link.Orthogonal, corner: 10 }, $(go.Shape));
+};
+
 const useGoJS = (
   diagramAlias: string,
   diagramOptions: any,
@@ -74,13 +85,15 @@ const useGoJS = (
     },
   };
   addConfigs(config, model, diagramCreated);
+  addNodeTemplate(diagramCreated);
+  addLinkTemplate(diagramCreated);
   // addEventListeners(config, emit, diagramCreated);
   return diagramCreated;
 };
 
 const listenersForDiagram = () => {};
 
-export default {
+export {
   useGoJS,
   listenersForDiagram,
 };

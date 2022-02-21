@@ -1,6 +1,6 @@
 import useActionMenu from './useActionMenu';
 import useDrag from './useDrag';
-import useGoJS from './goJS';
+import { useGoJS } from './goJS';
 
 export {
   useActionMenu,

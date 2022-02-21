@@ -3,17 +3,23 @@ import { DiagramGetters } from '@/constants';
 import { DiagramState } from '@/interfaces';
 
 const nodeDataArray = [
-  { key: 'Alpha' }, { key: 'Beta' }, { key: 'Gamma' }, { key: 'Delta' },
-  { key: 'Epsilon' }, { key: 'Zeta' }, { key: 'Eta' }, { key: 'Theta' },
+  { key: 'Alpha', loc: '0 60' },
+  { key: 'Beta', loc: '100 15' },
+  { key: 'Gamma', loc: '200 0' },
+  { key: 'Delta', loc: '200 30' },
+  { key: 'Epsilon', loc: '100 90' },
+  { key: 'Zeta', loc: '200 60' },
+  { key: 'Eta', loc: '200 90' },
+  { key: 'Theta', loc: '200 120' },
 ];
 const linkDataArray = [
-  { from: 'Beta', to: 'Alpha' },
-  { from: 'Gamma', to: 'Alpha' },
-  { from: 'Delta', to: 'Alpha' },
+  { from: 'Alpha', to: 'Beta' },
+  { from: 'Beta', to: 'Gamma' },
+  { from: 'Beta', to: 'Delta' },
   { from: 'Alpha', to: 'Epsilon' },
-  { from: 'Alpha', to: 'Zeta' },
-  { from: 'Alpha', to: 'Eta' },
-  { from: 'Alpha', to: 'Theta' },
+  { from: 'Epsilon', to: 'Zeta' },
+  { from: 'Epsilon', to: 'Eta' },
+  { from: 'Epsilon', to: 'Theta' },
 ];
 
 const defaultState = (): DiagramState => ({
