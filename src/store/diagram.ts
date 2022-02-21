@@ -11,6 +11,7 @@ const nodeDataArray = [
   { key: 'Zeta', loc: '200 60' },
   { key: 'Eta', loc: '200 90' },
   { key: 'Theta', loc: '200 120' },
+  { key: 'End', loc: '0 0' },
 ];
 const linkDataArray = [
   { from: 'Alpha', to: 'Beta' },
@@ -20,6 +21,11 @@ const linkDataArray = [
   { from: 'Epsilon', to: 'Zeta' },
   { from: 'Epsilon', to: 'Eta' },
   { from: 'Epsilon', to: 'Theta' },
+  { from: 'Zeta', to: 'End' },
+  { from: 'Eta', to: 'End' },
+  { from: 'Theta', to: 'End' },
+  { from: 'Delta', to: 'End' },
+  { from: 'Gamma', to: 'End' },
 ];
 
 const defaultState = (): DiagramState => ({
