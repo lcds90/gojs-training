@@ -31,9 +31,8 @@ const linkDataArray = [
 const defaultState = (): DiagramState => ({
   diagram: {
     alias: 'Gatinhos',
-    // type: model,
     options: {
-      // initialContentAligment: go.Spot.Left,
+      initialContentAligment: 'center',
       padding: 50,
       allowDelete: false,
       allowCopy: false,

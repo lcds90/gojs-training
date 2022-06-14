@@ -46,7 +46,7 @@ export default defineComponent({
       const linkDataArray = unref(diagramData).links as ObjectData[];
 
       if (!diagramElement) return;
-      useGoJS(
+      useGoJS.create(
         diagramAlias,
         diagramOptions,
         diagramElement,

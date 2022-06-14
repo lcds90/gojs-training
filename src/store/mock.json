@@ -1,0 +1,465 @@
+{
+    "credentials": {
+        "allowCredentials": {
+            "sms": {
+                "allowed": true
+            },
+            "whatsapp": {
+                "allowed": true
+            },
+            "rcs": {
+                "allowed": false
+            }
+        },
+        "credentials": [],
+        "smsCredential": {
+            "senderId": "account.sms.zenvia.message.fake"
+        }
+    },
+    "diagram": {
+        {
+            "currentDiagram": {
+                "steps": [
+                    {
+                        "id": "banana",
+                        "type": "branch",
+                        "label": "Teste"
+                    },
+                    {
+                        "id": "step06",
+                        "type": "sendSmsActivity",
+                        "properties": {
+                            "from": "#{session['chatFrom']}"
+                        },
+                        "contents": [
+                            {
+                                "type": "text/plain",
+                                "payload": {
+                                    "text": "Apps"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "step05",
+                        "type": "sendSmsActivity",
+                        "properties": {
+                            "from": "#{session['chatFrom']}"
+                        },
+                        "contents": [
+                            {
+                                "type": "text/plain",
+                                "payload": {
+                                    "text": "Flow"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "startStep",
+                        "type": "apiCallEvent",
+                        "properties": {
+                            "startEvent": "true"
+                        },
+                        "label": "Start"
+                    },
+                    {
+                        "id": "step02",
+                        "type": "sendSmsActivity",
+                        "properties": {
+                            "from": "#{session['chatFrom']}"
+                        },
+                        "contents": [
+                            {
+                                "type": "text/plain",
+                                "payload": {
+                                    "text": "Campaign"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "step04",
+                        "type": "moEvent",
+                        "properties": {
+                            "timeUnit": "minute",
+                            "expirationInMinutes": ""
+                        },
+                        "variables": {
+                            "answer": "payload"
+                        },
+                        "label": "step04"
+                    },
+                    {
+                        "id": "idEventoFinal",
+                        "type": "endEvent",
+                        "properties": {
+                            "endEvent": "true"
+                        },
+                        "label": "label 3"
+                    },
+                    {
+                        "id": "step07",
+                        "type": "sendSmsActivity",
+                        "properties": {
+                            "from": "#{session['chatFrom']}"
+                        },
+                        "contents": [
+                            {
+                                "type": "text/plain",
+                                "payload": {
+                                    "text": "Não deu match"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "step03",
+                        "type": "sendSmsActivity",
+                        "properties": {
+                            "from": "#{session['chatFrom']}"
+                        },
+                        "contents": [
+                            {
+                                "type": "text/plain",
+                                "payload": {
+                                    "text": "Qual seu nome?"
+                                }
+                            }
+                        ],
+                        "label": "step03"
+                    }
+                ],
+                "connections": [
+                    {
+                        "from": "step03",
+                        "to": "step04"
+                    },
+                    {
+                        "from": "step07",
+                        "to": "step04"
+                    },
+                    {
+                        "from": "banana",
+                        "to": "step06",
+                        "label": "Apps",
+                        "conditions": [
+                            {
+                                "type": "elCondition",
+                                "expression": "{'severo', 'sempe', 'cassio', 'uelfa'}.contains(answer)"
+                            }
+                        ]
+                    },
+                    {
+                        "from": "startStep",
+                        "to": "step03"
+                    },
+                    {
+                        "from": "step04",
+                        "to": "banana"
+                    },
+                    {
+                        "from": "banana",
+                        "to": "step02",
+                        "label": "Campaign",
+                        "conditions": [
+                            {
+                                "type": "elCondition",
+                                "expression": "{'leo', 'le', 'bruno', 'lipe', 'jon'}.contains(answer)"
+                            }
+                        ]
+                    },
+                    {
+                        "from": "banana",
+                        "to": "step07",
+                        "label": "Invalid",
+                        "isDefault": true
+                    },
+                    {
+                        "from": "step06",
+                        "to": "idEventoFinal"
+                    },
+                    {
+                        "from": "step02",
+                        "to": "idEventoFinal"
+                    },
+                    {
+                        "from": "step05",
+                        "to": "idEventoFinal"
+                    },
+                    {
+                        "from": "banana",
+                        "to": "step05",
+                        "label": "Flow",
+                        "conditions": [
+                            {
+                                "type": "elCondition",
+                                "expression": "{'conrado', 'gian', 'dai', 'alvaro'}.contains(answer)"
+                            }
+                        ]
+                    }
+                ],
+                "triggers": [
+                    {
+                        "values": [
+                            "9f83bf5e-e0f7-4833-b94a-9c9479d624f1"
+                        ],
+                        "type": "CONTACT_ADDED_IN_LIST"
+                    }
+                ]
+            },
+            "lastStepAction": {
+                "action": 0,
+                "step": {}
+            },
+            "automation": {
+                "id": "047674f4-5ecf-40d5-9895-781b80aac777",
+                "name": "Testando Lista",
+                "organizationId": "04c7219b-076b-4bd5-815e-4324411c99aa",
+                "workflowId": "02b28348-f25b-4263-af1e-3d1cd98eed4a",
+                "triggers": [
+                    {
+                        "values": [
+                            "9f83bf5e-e0f7-4833-b94a-9c9479d624f1"
+                        ],
+                        "type": "CONTACT_ADDED_IN_LIST"
+                    }
+                ],
+                "status": "INACTIVE",
+                "createdBy": "diego.santos@terceiros.zenvia.com",
+                "updatedBy": "leonardo.santos@zenvia.com",
+                "createdAt": "2022-01-27T19:59:00.994Z",
+                "updatedAt": "2022-02-25T21:56:46.125Z",
+                "workflow": {
+                    "language": "pt",
+                    "steps": [
+                        {
+                            "id": "banana",
+                            "type": "branch",
+                            "label": "Teste"
+                        },
+                        {
+                            "id": "step06",
+                            "type": "sendSmsActivity",
+                            "properties": {
+                                "from": "#{session['chatFrom']}"
+                            },
+                            "contents": [
+                                {
+                                    "type": "text/plain",
+                                    "payload": {
+                                        "text": "Apps"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "step05",
+                            "type": "sendSmsActivity",
+                            "properties": {
+                                "from": "#{session['chatFrom']}"
+                            },
+                            "contents": [
+                                {
+                                    "type": "text/plain",
+                                    "payload": {
+                                        "text": "Flow"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "startStep",
+                            "type": "apiCallEvent",
+                            "properties": {
+                                "startEvent": "true"
+                            },
+                            "label": "Start"
+                        },
+                        {
+                            "id": "step02",
+                            "type": "sendSmsActivity",
+                            "properties": {
+                                "from": "#{session['chatFrom']}"
+                            },
+                            "contents": [
+                                {
+                                    "type": "text/plain",
+                                    "payload": {
+                                        "text": "Campaign"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "step04",
+                            "type": "moEvent",
+                            "properties": {
+                                "timeUnit": "minute",
+                                "expirationInMinutes": ""
+                            },
+                            "variables": {
+                                "answer": "payload"
+                            },
+                            "label": "step04"
+                        },
+                        {
+                            "id": "idEventoFinal",
+                            "type": "endEvent",
+                            "properties": {
+                                "endEvent": "true"
+                            },
+                            "label": "label 3"
+                        },
+                        {
+                            "id": "step07",
+                            "type": "sendSmsActivity",
+                            "properties": {
+                                "from": "#{session['chatFrom']}"
+                            },
+                            "contents": [
+                                {
+                                    "type": "text/plain",
+                                    "payload": {
+                                        "text": "Não deu match"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "step03",
+                            "type": "sendSmsActivity",
+                            "properties": {
+                                "from": "#{session['chatFrom']}"
+                            },
+                            "contents": [
+                                {
+                                    "type": "text/plain",
+                                    "payload": {
+                                        "text": "Qual seu nome?"
+                                    }
+                                }
+                            ],
+                            "label": "step03"
+                        }
+                    ],
+                    "connections": [
+                        {
+                            "from": "step03",
+                            "to": "step04"
+                        },
+                        {
+                            "from": "step07",
+                            "to": "step04"
+                        },
+                        {
+                            "from": "banana",
+                            "to": "step06",
+                            "label": "Apps",
+                            "conditions": [
+                                {
+                                    "type": "elCondition",
+                                    "expression": "{'severo', 'sempe', 'cassio', 'uelfa'}.contains(answer)"
+                                }
+                            ]
+                        },
+                        {
+                            "from": "startStep",
+                            "to": "step03"
+                        },
+                        {
+                            "from": "step04",
+                            "to": "banana"
+                        },
+                        {
+                            "from": "banana",
+                            "to": "step02",
+                            "label": "Campaign",
+                            "conditions": [
+                                {
+                                    "type": "elCondition",
+                                    "expression": "{'leo', 'le', 'bruno', 'lipe', 'jon'}.contains(answer)"
+                                }
+                            ]
+                        },
+                        {
+                            "from": "banana",
+                            "to": "step07",
+                            "label": "Invalid",
+                            "isDefault": true
+                        },
+                        {
+                            "from": "step06",
+                            "to": "idEventoFinal"
+                        },
+                        {
+                            "from": "step02",
+                            "to": "idEventoFinal"
+                        },
+                        {
+                            "from": "step05",
+                            "to": "idEventoFinal"
+                        },
+                        {
+                            "from": "banana",
+                            "to": "step05",
+                            "label": "Flow",
+                            "conditions": [
+                                {
+                                    "type": "elCondition",
+                                    "expression": "{'conrado', 'gian', 'dai', 'alvaro'}.contains(answer)"
+                                }
+                            ]
+                        }
+                    ],
+                    "categories": [
+                        "ACTIVE"
+                    ],
+                    "defaultConversationalChannel": "SMS"
+                }
+            },
+            "isLoading": false,
+            "isLoadingSave": false,
+            "triggersContactList": [
+                {
+                    "id": "9f83bf5e-e0f7-4833-b94a-9c9479d624f1",
+                    "name": "Lista T",
+                    "active": true,
+                    "size": 1,
+                    "createdAt": "2022-01-27T19:58:31.384Z",
+                    "updatedAt": "2022-01-27T19:58:31.384Z",
+                    "organizationId": "04c7219b-076b-4bd5-815e-4324411c99aa",
+                    "createdByUserEmail": "diego.santos@terceiros.zenvia.com",
+                    "updatedByUserEmail": "diego.santos@terceiros.zenvia.com"
+                }
+            ]
+        }
+    },
+    "whatsapp": {
+        {
+            "whatsAppTemplate": [],
+            "whatsappForm": {
+                "label": "",
+                "from": "",
+                "selectedTemplate": {}
+            }
+        }
+    }
+    "apiCallEvent": {
+        "apiCallEvent": {
+            "id": "startStep",
+            "type": "apiCallEvent",
+            "properties": {
+                "startEvent": "true"
+            },
+            "label": "Start"
+        }
+    },
+    {
+        "RcsForm": {
+            "label": "",
+            "from": "",
+            "message": ""
+        }
+    }
+}

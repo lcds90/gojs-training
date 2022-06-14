@@ -1,3 +1,25 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useRouter, RouteRecordNormalized } from 'vue-router';
+
+const router = useRouter();
+const getAllRoutes = router.getRoutes();
+const filteredRoutes = getAllRoutes.filter((route: RouteRecordNormalized) => route.name?.toString().includes('tutorial/'));
+    interface Link {
+      name: string;
+      path: string;
+    }
+const links = ref<Link[]>([]);
+
+filteredRoutes.forEach((route: RouteRecordNormalized) => {
+  const { name, path } = route;
+  const separateNameAndPath = name?.toString()?.split('/') || [];
+  const newName = separateNameAndPath[1];
+  links.value.push({ name: newName, path });
+});
+
+</script>
+
 <template>
   <div class="container">
     <nav>
@@ -8,36 +30,6 @@
     <router-view></router-view>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { useRouter, RouteRecordNormalized } from 'vue-router';
-
-export default defineComponent({
-  name: 'Tutorial',
-  setup() {
-    const router = useRouter();
-    const getAllRoutes = router.getRoutes();
-    const filteredRoutes = getAllRoutes.filter((route: RouteRecordNormalized) => route.name?.toString().includes('tutorial/'));
-    interface Link {
-      name: string;
-      path: string;
-    }
-    const links = ref<Link[]>([]);
-
-    filteredRoutes.forEach((route: RouteRecordNormalized) => {
-      const { name, path } = route;
-      const separateNameAndPath = name?.toString()?.split('/') || [];
-      const newName = separateNameAndPath[1];
-      links.value.push({ name: newName, path });
-    });
-
-    return {
-      links,
-    };
-  },
-});
-</script>
 
 <style scoped>
 .container {
@@ -64,5 +56,9 @@ nav {
   text-decoration: none;
   border-radius: 15px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.container * {
+  overflow: hidden;
 }
 </style>

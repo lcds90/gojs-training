@@ -1,3 +1,24 @@
+<script setup lang="ts">
+import { reactive } from 'vue';
+import { useHead } from '@vueuse/head';
+
+const siteData = reactive({
+  title: 'GoJS Training',
+  description: 'Training my skills with lib GoJS.',
+});
+
+useHead({
+  title: siteData.title,
+  meta: [
+    {
+      name: 'description',
+      content: siteData.description,
+    },
+  ],
+});
+
+</script>
+
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link>
@@ -6,30 +27,6 @@
   </div>
   <router-view />
 </template>
-<script lang="ts">
-import { defineComponent, reactive } from 'vue';
-import { useHead } from '@vueuse/head';
-import { useRouter } from 'vue-router';
-
-export default defineComponent({
-  setup() {
-    const siteData = reactive({
-      title: 'GoJS Training',
-      description: 'Training my skills with lib GoJS.',
-    });
-
-    useHead({
-      title: siteData.title,
-      meta: [
-        {
-          name: 'description',
-          content: siteData.description,
-        },
-      ],
-    });
-  },
-});
-</script>
 
 <style lang="scss">
 * {
