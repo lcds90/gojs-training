@@ -11,7 +11,6 @@ import {
   defineComponent,
   ref,
   onMounted,
-  HTMLAttributes,
   unref,
   computed,
 } from 'vue';
