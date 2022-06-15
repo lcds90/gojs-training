@@ -53,24 +53,25 @@ useHead({
 
 #nav {
   padding: 30px;
-  background: lightgrey;
-  border-bottom: 0.5px black solid;
+  background: rgb(72, 72, 72);
+  border-bottom: 0.5px rgb(175, 175, 175) solid;
   display: grid;
   gap: 25px;
   grid-auto-flow: column;
   overflow-y: hidden;
   a {
     font-weight: bold;
-    color: #2e2e2e;
+    color: white;
     text-decoration: none;
     padding: 5px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
     transition: all 0.5s ease;
     display: grid;
     place-items: center;
+    background: #281e3c;
 
     &.router-link-exact-active {
-      background: #42b983;
+      background: #b894ff;
       border-radius: 5px;
     }
   }
