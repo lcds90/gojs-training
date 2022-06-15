@@ -1,3 +1,3 @@
-import { DiagramGetters } from "./DiagramStore";
+import { DiagramGetters } from './DiagramStore';
 
-export { DiagramGetters }
+export { DiagramGetters };

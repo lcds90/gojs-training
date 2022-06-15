@@ -3,6 +3,8 @@
 </template>
 
 <script>
+/* eslint-disable no-param-reassign */
+
 import './button.css';
 import { reactive, computed } from 'vue';
 
