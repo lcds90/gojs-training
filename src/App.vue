@@ -21,9 +21,15 @@ useHead({
 
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link>
-    <router-link to="/tutorial">Tutorial</router-link>
-    <router-link to="/project">Projeto</router-link>
+    <router-link to="/">
+      Home
+    </router-link>
+    <router-link to="/tutorial">
+      Tutorial
+    </router-link>
+    <router-link to="/project">
+      Projeto
+    </router-link>
   </div>
   <router-view />
 </template>
@@ -46,9 +52,7 @@ useHead({
   max-width: 100%;
   width: 100vw;
   display: grid;
-  grid: 15vh 1fr / 1fr;
-  grid-auto-rows: 10vh;
-
+  grid: max-content 1fr / 1fr;
 }
 
 #nav {

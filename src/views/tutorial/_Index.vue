@@ -38,7 +38,7 @@ filteredRoutes.forEach((route: RouteRecordNormalized) => {
   width: 100%;
   height: 100%;
   display: grid;
-  grid: 10vh 1fr / 1fr;
+  grid: max-content 1fr / 1fr;
   place-items: center;
 
   nav {
